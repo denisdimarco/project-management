@@ -1,5 +1,7 @@
 package com.ddm.pma.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +17,14 @@ import com.ddm.pma.entities.Employee;
 public class EmployeeController {
 
 	@Autowired
-	EmployeeRepository empRep;
+	EmployeeRepository empRepo;
+	
+	@GetMapping
+	public String displayEmployees(Model model) {
+		List<Employee> employees = empRepo.findAll();
+		model.addAttribute("employees", employees);
+		return "employees/list-employees";
+	}
 
 	@GetMapping("/new")
 	public String displayEmployeeForm(Model model) {
@@ -27,7 +36,7 @@ public class EmployeeController {
 
 	@PostMapping("/save")
 	public String createEmployee(Employee employee, Model model) {
-		empRep.save(employee);
+		empRepo.save(employee);
 
 		return "redirect:/employees/new";
 	}
