@@ -1,5 +1,9 @@
 package com.ddm.pma.dao;
 
-public interface EmployeeRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.ddm.pma.entities.Employee;
+
+public interface EmployeeRepository extends CrudRepository<Employee, Long> {
 
 }
