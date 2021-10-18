@@ -11,12 +11,12 @@
 
 		<form action="/projects/save" th:object="${project}" method="POST">
 
-			<input type="text" placeholder="Project Name"
-				th:field="${project.name}"> <select
-				th:field="${project.stage}">
-				<option th:value="NOTSTARTED">Not Started</option>
-				<option th:value="INPROGRESS">In Progress</option>
-				<option th:value="COMPLETED">Completed</option>
+			<input type="text" placeholder="Project Name" th:field="${project.name}">
+			
+			 <select th:field="${project.stage}">
+				<option th:value="NOTSTARTED"> Not Started</option>
+				<option th:value="INPROGRESS"> In Progress</option>
+				<option th:value="COMPLETED"> Completed</option>
 			</select>
 
 			<textarea placeholder="Enter Project Description"
@@ -24,10 +24,9 @@
 
 			<select th:field="*{employees}" multiple="multiple">
 
-				<option th:each="employee : ${allEmployees}"
-					th:value="${employee.employeeId}" 
-					th:text="${employee.firstName}">
-				</option>
+				<option th:each = "employee : ${allEmployees}"
+					th:value="${employee.employeeId}" th:text="${employee.firstName}">
+				</option> 
 			</select>
 
 			<button type="submit">Create Project</button>
