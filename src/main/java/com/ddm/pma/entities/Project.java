@@ -1,5 +1,6 @@
 package com.ddm.pma.entities;
 
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
