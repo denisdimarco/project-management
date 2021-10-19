@@ -11,3 +11,9 @@ new Chart(document.getElementById("myPieChart"), {
 	},
 	options: {}
 });
+
+function decodeHtml(html){
+	var txt = document.createElement("textarea");
+	txt.innerHTML = html;
+	return txt.value;
+}
